@@ -1,0 +1,29 @@
+<!--
+  Generated template for the ParkDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>park-detail</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <img [src]="getImagePath(parkDetail.image)">
+    <h1>{{parkDetail.park}}</h1>
+    <ion-card>
+        <ion-card-header>
+            <h2>Park Detail</h2>
+        </ion-card-header>
+
+        <ion-card-content>
+            <p class="item-description"> {{parkDetail.description}} </p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

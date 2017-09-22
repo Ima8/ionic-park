@@ -19,12 +19,15 @@ export class ParkListPage {
 
 
   parkList: Array<Park> = [];
-  imageParkThumbs: String
+  parkListFiltered: Array<any> = [];
+  isfiltered: boolean;
 
   constructor(
     public parksData: ParkDataProvider,
     public navCtrl: NavController,
     public navParams: NavParams) {
+
+    this.isfiltered = false;
 
     this.parksData.loadParks()
       .subscribe(data => { // success
@@ -38,7 +41,27 @@ export class ParkListPage {
       }
       );
   }
+  searchQuotes(event) {
+    console.log(event.target.value);
+    if (event.target.value) {
+      if (event.target.value.length > 2) {
+        let filteredJson = this.parkList.filter(row => {
+          if (row.park.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+        this.isfiltered = true;
+        this.parkListFiltered = filteredJson;
+      } else {
+        this.isfiltered = false
+      }
+    } else {
+      this.isfiltered = false
+    }
 
+  }
   getImagePath(imageName) {
     return this.parksData.getImageThumbsUrl(imageName)
   }

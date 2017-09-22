@@ -14,9 +14,20 @@
 
 
 <ion-content padding class="card-background-page">
-    <ion-card *ngFor="let park of parkList" (click)="selectPark(park)">
-        <img [src]="getImagePath(park.image)" />
-        <div class="card-title">{{park.park}}</div>
-        <div class="card-subtitle">{{park.state}}</div>
-    </ion-card>
+    <ion-searchbar (ionInput)="searchQuotes($event)"></ion-searchbar>
+    <div *ngIf="!isfiltered">
+        <ion-card *ngFor="let park of parkList" (click)="selectPark(park)">
+            <img [src]="getImagePath(park.image)" />
+            <div class="card-title">{{park.park}}</div>
+            <div class="card-subtitle">{{park.state}}</div>
+        </ion-card>
+    </div>
+    <div *ngIf="isfiltered">
+        <ion-card *ngFor="let park of parkListFiltered" (click)="selectPark(park)">
+            <img [src]="getImagePath(park.image)" />
+            <div class="card-title">{{park.park}}</div>
+            <div class="card-subtitle">{{park.state}}</div>
+        </ion-card>
+    </div>
+
 </ion-content>

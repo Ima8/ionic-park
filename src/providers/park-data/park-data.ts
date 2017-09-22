@@ -22,15 +22,12 @@ export class ParkDataProvider {
   }
 
   getParkUrl() {
-    //return this.rootPathApi
     return this.rootPathApi
   }
   getImageThumbsUrl(imageName) {
-    // return this.getImageThumbsUrl + imageName
     return this.rootPathApi + "assets/img/thumbs/" + imageName
   }
   getImageHeadersUrl(imageName) {
-    // return this.getImageHeadersUrl + imageName
     return this.rootPathApi + "assets/img/headers/" + imageName
   }
 

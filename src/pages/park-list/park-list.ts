@@ -37,9 +37,6 @@ export class ParkListPage {
         console.log('read quotes Complete ' + this.parkList)
       }
       );
-
-
-
   }
 
   getImagePath(imageName) {
